@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-ractive-bin",
-  "version": "1.0.0",
+  "version": "2.0.0-alpha-1",
   "description": "build Ractive.js components using rollup and the library behind the ractive bin",
   "main": "index.js",
   "author": "Chris Reeves <evschris@gmail.com>",
@@ -9,12 +9,16 @@
     "type": "git",
     "url": "https://github.com/ractivejs/rollup-plugin-ractive-bin"
   },
-  "keywords": [ "ractive", "rollup-plugin", "component" ],
+  "keywords": [
+    "ractive",
+    "rollup-plugin",
+    "component"
+  ],
   "bugs": {
     "url": "https://github.com/ractivejs/rollup-plugin-ractive-bin/issues"
   },
   "dependencies": {
-    "rollup-pluginutils": "^2"
+    "ractive": "> 1.0"
   },
   "peerDependencies": {
     "ractive": ">= 0.9",
