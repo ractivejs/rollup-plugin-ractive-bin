@@ -89,6 +89,7 @@ async function loadFile(id, opts) {
   const watches = [path.resolve(id)];
 
   const readFile = file => {
+    if (Array.isArray(file)) file = path.join.apply(path, file)
     const f = path.join(path.dirname(id), file);
     return new Promise((ok, fail) => {
       fs.readFile(f, { encoding: 'utf8' }, (err, data) => {
@@ -100,6 +101,11 @@ async function loadFile(id, opts) {
     });
   }
 
-  const code = await component.build(str, opts, readFile);
-  return { code, watches };
+  try {
+    const code = await component.build(str, opts, readFile);
+    return { code, watches };
+  } catch (e) {
+    console.error(e);
+    this.error(e);
+  }
 }
